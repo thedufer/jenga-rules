@@ -3522,7 +3522,7 @@ let link (module Mode : Ocaml_mode.S) (dc : DC.t) ~dir
           (match Mode.which with
            | `Native -> 
                (match Unix.Utsname.sysname (Unix.uname ()) with
-               | "Darwin" -> ["-ccopt"]
+               | "Darwin" -> ["-ccopt"; "-Wl"]
                | _ -> ["-ccopt"; "-Wl,--as-needed"])
            | `Byte -> ["-custom"]);
           build_info_args;
